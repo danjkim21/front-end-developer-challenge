@@ -13,11 +13,10 @@ function TalentTree({ talentPath, title }: TalentTreeProps) {
   });
 
   return (
-    <div>
-      <h3>{title}</h3>
-
-      <div>{talents}</div>
-    </div>
+    <section className='talent-path'>
+      <h2 className='talent-path__title'>{title}</h2>
+      <div className='talent-path__talents'>{talents}</div>
+    </section>
   );
 }
 

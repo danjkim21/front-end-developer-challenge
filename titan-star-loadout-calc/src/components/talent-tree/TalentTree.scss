@@ -1,0 +1,19 @@
+.talent-path {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: start;
+    text-transform: uppercase;
+    min-width: 165px;
+  }
+
+  &__talents {
+    display: flex;
+    gap: 100px;
+  }
+}

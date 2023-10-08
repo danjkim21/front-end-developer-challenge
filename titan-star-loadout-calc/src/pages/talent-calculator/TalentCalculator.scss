@@ -1,0 +1,29 @@
+@use '../../styles/variables';
+
+.talent-calculator {
+  &__header {
+    background-color: variables.$bg-gray;
+    padding: 0.75rem 3rem;
+    margin-bottom: 4.5rem;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .talent-paths-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-right: auto;
+  }
+  .talent-points-container {
+    padding: 2rem;
+  }
+}
