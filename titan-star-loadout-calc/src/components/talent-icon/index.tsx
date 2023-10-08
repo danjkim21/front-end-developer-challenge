@@ -1,5 +1,7 @@
 import './TalentIcon.scss';
 
+interface TalentIconProps {}
+
 function TalentIcon() {
   return <div>index</div>;
 }

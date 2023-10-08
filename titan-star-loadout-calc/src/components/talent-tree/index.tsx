@@ -1,11 +1,17 @@
+import { TalentItem } from '../../types/talents';
 import TalentIcon from '../talent-icon';
 import './TalentTree.scss';
 
-function TalentTree({ talentPath, title }) {
+interface TalentTreeProps {
+  talentPath: TalentItem[];
+  title: string;
+}
+
+function TalentTree({ talentPath, title }: TalentTreeProps) {
   console.log(talentPath);
 
   const talents = talentPath.map((talent) => {
-    return <TalentIcon key={talent.id} />;
+    return <TalentIcon />;
   });
 
   return (
