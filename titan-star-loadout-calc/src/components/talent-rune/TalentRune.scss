@@ -1,0 +1,58 @@
+// Rune variables
+$rune-icon-size: 50px;
+$rune-border-active: linear-gradient(to bottom, #7eabe6, #506d99);
+$rune-border-default: linear-gradient(to bottom, #4c4c4c, #444);
+
+.talent-rune {
+  height: $rune-icon-size;
+  width: $rune-icon-size;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-image: url('../../assets/talent-icons-sprite.png');
+  background-repeat: none;
+  background-position-y: $rune-icon-size;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: $rune-border-default;
+
+  &:hover {
+    background-position-y: 0;
+  }
+
+  &__chevron {
+    background-position-x: 0;
+  }
+
+  &__silverware {
+    background-position-x: -$rune-icon-size;
+  }
+
+  &__cake {
+    background-position-x: -$rune-icon-size * 2;
+  }
+
+  &__crown {
+    background-position-x: -$rune-icon-size * 3;
+  }
+
+  &__boat {
+    background-position-x: -$rune-icon-size * 4;
+  }
+
+  &__scuba {
+    background-position-x: -$rune-icon-size * 5;
+  }
+
+  &__lightning {
+    background-position-x: -$rune-icon-size * 6;
+  }
+
+  &__skull {
+    background-position-x: -$rune-icon-size * 7;
+  }
+
+  &.active {
+    background-position-y: 0;
+    border-image-source: $rune-border-active;
+  }
+}

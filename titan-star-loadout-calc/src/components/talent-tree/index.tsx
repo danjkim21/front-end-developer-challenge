@@ -1,5 +1,5 @@
 import { TalentItem } from '../../types/talents';
-import TalentIcon from '../talent-icon';
+import TalentRune from '../talent-rune';
 import './TalentTree.scss';
 
 interface TalentTreeProps {
@@ -8,10 +8,8 @@ interface TalentTreeProps {
 }
 
 function TalentTree({ talentPath, title }: TalentTreeProps) {
-  console.log(talentPath);
-
   const talents = talentPath.map((talent) => {
-    return <TalentIcon />;
+    return <TalentRune key={talent.id} talent={talent} />;
   });
 
   return (
