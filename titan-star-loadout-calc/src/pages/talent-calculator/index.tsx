@@ -41,7 +41,10 @@ function TalentCalculator() {
 
         {/* Points Spent Component */}
         <section className='talent-points-container'>
-          <h2>{pointsSpent} / 6 Points Spent</h2>
+          <h2>
+            <span className='points-spent-value'>{pointsSpent} / 6</span>
+            <span className='points-spent-label'>Points Spent</span>
+          </h2>
         </section>
       </div>
     </main>

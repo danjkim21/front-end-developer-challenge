@@ -27,5 +27,43 @@
   }
   .talent-points-container {
     padding: 2rem;
+
+    h2 {
+      line-height: 125%;
+      
+      .points-spent-value {
+        display: block;
+        font-weight: 500;
+      }
+      .points-spent-label {
+        font-weight: 400;
+        color: variables.$font-gray_dark;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: variables.$screen-md) {
+  .talent-calculator {
+    &__header {
+      padding: 0.55rem 1.75rem;
+      margin-bottom: 1rem;
+
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+
+    &__content {
+      flex-direction: column-reverse;
+      row-gap: 1rem;
+    }
+
+  .talent-paths-container {
+    gap: 1rem;
+  }
+  .talent-points-container {
+    padding: 0
+  }
   }
 }
