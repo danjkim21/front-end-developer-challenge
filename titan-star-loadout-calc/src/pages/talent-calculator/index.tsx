@@ -6,13 +6,11 @@ import { useState } from 'react';
 function TalentCalculator() {
   const [pointsSpent, setPointsSpent] = useState(0);
 
-  const onAddTalent = (talentId: string) => {
-    console.log('Adding talent', talentId);
-  };
-
-  const onRemoveTalent = (talentId: string) => {
-    console.log('Removing talent', talentId);
-  };
+  // ** Functions: Increment and decrement points spent via useState
+  // Parameter: none
+  // Return: void
+  const incrementPointsSpent = () => setPointsSpent(pointsSpent + 1);
+  const decrementPointsSpent = () => setPointsSpent(pointsSpent - 1);
 
   return (
     <main className='talent-calculator'>
@@ -26,16 +24,18 @@ function TalentCalculator() {
           <TalentTree
             talentPath={talentPathOne}
             title='Talent Path 1'
-            handleAddTalent={onAddTalent}
-            handleRemoveTalent={onRemoveTalent}
+            pointsSpent={pointsSpent}
+            incrementPointsSpent={incrementPointsSpent}
+            decrementPointsSpent={decrementPointsSpent}
           />
 
           {/* Talent Tree Two Component */}
           <TalentTree
             talentPath={talentPathTwo}
             title='Talent Path 2'
-            handleAddTalent={onAddTalent}
-            handleRemoveTalent={onRemoveTalent}
+            pointsSpent={pointsSpent}
+            incrementPointsSpent={incrementPointsSpent}
+            decrementPointsSpent={decrementPointsSpent}
           />
         </div>
 

@@ -1,29 +1,82 @@
+import { Fragment } from 'react';
 import { TalentItem } from '../../types/talents';
 import TalentRune from '../talent-rune';
 import './TalentTree.scss';
+import { findTalentByIdByPath } from '../../utils/findTalentByIdByPath';
 
 interface TalentTreeProps {
   talentPath: TalentItem[];
   title: string;
-  handleAddTalent: (talentId: string) => void;
-  handleRemoveTalent: (talentId: string) => void;
+  pointsSpent: number;
+  incrementPointsSpent: () => void;
+  decrementPointsSpent: () => void;
 }
 
 function TalentTree({
   talentPath,
   title,
-  handleAddTalent,
-  handleRemoveTalent,
+  pointsSpent,
+  incrementPointsSpent,
+  decrementPointsSpent,
 }: TalentTreeProps) {
-  const talents = talentPath.map((talent) => {
-    return (
-      <TalentRune
-        key={talent.id}
-        talent={talent}
-        handleAddTalent={handleAddTalent}
-        handleRemoveTalent={handleRemoveTalent}
-      />
-    );
+  // ** Function: Match's talentId to talent path data item, increments pointsSpent & set's isActive to true
+  // Parameter: talentId
+  // Return: void
+  const onAddTalent = (talentId: string) => {
+    const { talent, prevTalent } = findTalentByIdByPath(talentId, talentPath);
+    // Exit conditions: If pointsSpent is 6 or talent is already active, or if the previous talent is not active
+    if (
+      pointsSpent >= 6 ||
+      talent.isActive ||
+      (prevTalent && !prevTalent.isActive)
+    ) {
+      return;
+    }
+
+    incrementPointsSpent();
+    talent.isActive = true;
+  };
+
+  // ** Function: Match's talentId to talent path data item, decrements pointsSpent & set's isActive to false
+  // Parameter: talentId
+  // Return: void
+  const onRemoveTalent = (talentId: string) => {
+    const { talent, nextTalent } = findTalentByIdByPath(talentId, talentPath);
+    // Exit conditions: If pointsSpent is 0 or talent is not active, or if the next talent is active
+    if (
+      pointsSpent <= 0 ||
+      !talent.isActive ||
+      (nextTalent && nextTalent.isActive)
+    ) {
+      return;
+    }
+
+    decrementPointsSpent();
+    talent.isActive = false;
+  };
+
+  const talents = talentPath.map((talent, index) => {
+    if (index === talentPath.length - 1) {
+      return (
+        <TalentRune
+          key={talent.id}
+          talent={talent}
+          handleAddTalent={onAddTalent}
+          handleRemoveTalent={onRemoveTalent}
+        />
+      );
+    } else {
+      return (
+        <Fragment key={talent.id}>
+          <TalentRune
+            talent={talent}
+            handleAddTalent={onAddTalent}
+            handleRemoveTalent={onRemoveTalent}
+          />
+          <div className='talent-progress__line'></div>
+        </Fragment>
+      );
+    }
   });
 
   return (

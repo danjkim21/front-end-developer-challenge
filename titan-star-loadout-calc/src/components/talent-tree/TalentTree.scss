@@ -1,3 +1,8 @@
+$bg-progress:#1b1d1d;
+$border-progress: #1d1f1f;
+$bg-progress-active:#313235;
+$border-progress-active: #3d3e40;
+
 .talent-path {
   display: flex;
   align-items: center;
@@ -14,6 +19,19 @@
 
   &__talents {
     display: flex;
-    gap: 100px;
+    align-items: center;
+
+    .talent-progress__line {
+      width: 100px;
+      height: 1rem;
+      background-color: $bg-progress;
+      border-radius: $border-progress;
+      
+      .active {
+        background-color: $bg-progress-active;
+        border-radius: $border-progress-active;
+
+      }
+    }
   }
 }
