@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss';
+
 $bg-progress:#1b1d1d;
 $border-progress: #1d1f1f;
 $bg-progress-active:#313235;
@@ -32,6 +34,16 @@ $border-progress-active: #3d3e40;
     .active {
       border-color: $border-progress-active;
       background-color: $bg-progress-active;
+    }
+  }
+}
+
+@media screen and (max-width: variables.$screen-md) {
+  .talent-path {
+    &__talents {
+      .talent-progress__line { 
+        width: 40px;
+      }
     }
   }
 }
