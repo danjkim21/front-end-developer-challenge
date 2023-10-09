@@ -24,14 +24,14 @@ $border-progress-active: #3d3e40;
     .talent-progress__line {
       width: 100px;
       height: 1rem;
+      border-width: 1px;
+      border-style: solid;
+      border-color: $border-progress;
       background-color: $bg-progress;
-      border-radius: $border-progress;
-      
-      .active {
-        background-color: $bg-progress-active;
-        border-radius: $border-progress-active;
-
-      }
+    }
+    .active {
+      border-color: $border-progress-active;
+      background-color: $bg-progress-active;
     }
   }
 }

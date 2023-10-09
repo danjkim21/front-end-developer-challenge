@@ -55,25 +55,36 @@ function TalentTree({
     talent.isActive = false;
   };
 
-  const talents = talentPath.map((talent, index) => {
+  const talents = talentPath.map((talentItem, index) => {
     if (index === talentPath.length - 1) {
       return (
         <TalentRune
-          key={talent.id}
-          talent={talent}
+          key={talentItem.id}
+          talent={talentItem}
           handleAddTalent={onAddTalent}
           handleRemoveTalent={onRemoveTalent}
         />
       );
     } else {
+      const { talent, nextTalent } = findTalentByIdByPath(
+        talentItem.id,
+        talentPath
+      );
+
       return (
-        <Fragment key={talent.id}>
+        <Fragment key={talentItem.id}>
           <TalentRune
-            talent={talent}
+            talent={talentItem}
             handleAddTalent={onAddTalent}
             handleRemoveTalent={onRemoveTalent}
           />
-          <div className='talent-progress__line'></div>
+          <div
+            className={`talent-progress__line ${
+              talent.isActive && nextTalent && nextTalent.isActive
+                ? 'active'
+                : ''
+            }`}
+          ></div>
         </Fragment>
       );
     }

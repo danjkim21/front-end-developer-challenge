@@ -12,11 +12,18 @@ function TalentRune({
   handleAddTalent,
   handleRemoveTalent,
 }: TalentIconProps) {
+  // ** Function: handle click event
+  // Parameter: none
+  // Return: void
   const onHandleClick = () => {
     handleAddTalent(talent.id);
   };
+
+  // ** Function: handle right click event
+  // Parameter: event
+  // Return: void
   const onHandleRightClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+    e.preventDefault(); // prevent default context menu
     handleRemoveTalent(talent.id);
   };
 
