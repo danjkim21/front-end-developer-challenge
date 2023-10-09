@@ -4,7 +4,3 @@ export interface TalentItem {
   icon: string;
   isActive: boolean;
 }
-
-// export interface TalentPathInterface {
-
-// }

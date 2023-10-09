@@ -1,6 +1,6 @@
 import { TalentItem } from '../types/talents';
 
-// ** Function: Join talent paths, find and return the matching talent, the next, and previous talent by talent id
+// ** Function: find and return the matching talent (by id), the next, and previous talent, from a specified talentPath
 // Parameters: talentId, talentPath
 // Return: talent, nextTalent,  prevTalent
 

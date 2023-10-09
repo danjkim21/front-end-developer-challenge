@@ -57,6 +57,7 @@ function TalentTree({
 
   const talents = talentPath.map((talentItem, index) => {
     if (index === talentPath.length - 1) {
+      // Render rune only if it is the last item in the path
       return (
         <TalentRune
           key={talentItem.id}
@@ -66,6 +67,7 @@ function TalentTree({
         />
       );
     } else {
+      // Render Rune and Path line
       const { talent, nextTalent } = findTalentByIdByPath(
         talentItem.id,
         talentPath
